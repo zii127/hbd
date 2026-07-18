@@ -3,50 +3,25 @@
 <title>Happy Birthday Cutie</title>
 <style>
 body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ff9ecf,#b388ff);overflow-x:hidden;color:#fff}
-h1{text-align:center;margin:20px;text-shadow:0 0 10px #fff;animation:pulse 2s infinite}
-@keyframes pulse{50%{transform:scale(1.05)}}
+h1{text-align:center;margin:20px;text-shadow:0 0 10px #fff}
 .heart{position:fixed;bottom:-20px;font-size:20px;animation:float 8s linear infinite;opacity:.7}
 @keyframes float{to{transform:translateY(-110vh)}}
 .carousel{width:80%;max-width:700px;margin:20px auto;overflow:hidden;border-radius:20px}
 .carousel img{width:100%;display:none;height:420px;object-fit:cover}
 .carousel img.active{display:block}
-.cake{text-align:center;font-size:70px}
-.flames span{font-size:28px}
+.cake{text-align:center;font-size:90px}
 button{display:block;margin:20px auto;padding:12px 28px;border:none;border-radius:30px;background:#fff;color:#d63384;font-size:18px;cursor:pointer}
-#letter{display:none;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);padding:25px;border-radius:20px;width:80%;max-width:700px;margin:20px auto}
-</style></head>
-<body>
+#letter{display:none;background:rgba(255,255,255,.18);padding:25px;border-radius:20px;width:80%;max-width:700px;margin:20px auto}
+</style></head><body>
 <h1>🎉 Happy Birthday Cutie ❤️</h1>
 <div class="carousel">
-<img class="active" src="images/photo1.jpg">
-<img src="images/photo2.jpg">
-<img src="images/photo3.jpg">
-<img src="images/photo4.jpg">
+<img class="active" src="images/photo1.jpg"><img src="images/photo2.jpg"><img src="images/photo3.jpg"><img src="images/photo4.jpg">
 </div>
-<div class="cake">
-<div class="flames" id="flames"><span>🔥</span><span>🔥</span><span>🔥</span></div>
-<div>🕯️🕯️🕯️</div>
-<div>🎂</div>
-</div>
-<button onclick="wish()">💖 Make a Wish 💖</button>
-<div id="letter">
-<h2>💌 To My Cutie</h2>
-<p>Happy Birthday to the most wonderful person. Every smile of yours brightens my day and every memory with you is precious.</p>
-<p>I hope this year brings you endless happiness, success, laughter and all the love your heart deserves.</p>
-<p>Thank you for being you. ❤️</p>
-<p><b>Happy Birthday once again! 🎂✨</b></p>
-</div>
+<div class="cake">🎂</div>
+<button onclick="document.getElementById('letter').style.display='block';this.style.display='none';">💖 Make a Wish 💖</button>
+<div id="letter"><h2>💌 To My Cutie</h2><p>Happy Birthday to the most wonderful person. Every smile of yours brightens my day and every memory with you is precious.</p><p>I hope this year brings you endless happiness, success, laughter and all the love your heart deserves.</p><p>Thank you for being you. ❤️</p></div>
 <script>
 for(let i=0;i<30;i++){let h=document.createElement('div');h.className='heart';h.innerHTML='❤️';h.style.left=Math.random()*100+'vw';h.style.animationDuration=(5+Math.random()*5)+'s';h.style.animationDelay=Math.random()*5+'s';document.body.appendChild(h);}
 let idx=0,imgs=document.querySelectorAll('.carousel img');
 setInterval(()=>{imgs[idx].classList.remove('active');idx=(idx+1)%imgs.length;imgs[idx].classList.add('active');},2500);
-function confetti(){
-for(let i=0;i<120;i++){let c=document.createElement('div');c.textContent=['🎉','✨','💖','🎊'][Math.floor(Math.random()*4)];
-c.style.position='fixed';c.style.left=Math.random()*100+'vw';c.style.top='-20px';c.style.fontSize='24px';
-c.animate([{transform:'translateY(0)'},{transform:'translateY(110vh) rotate(720deg)'}],{duration:3000+Math.random()*2000});
-document.body.appendChild(c);setTimeout(()=>c.remove(),5000);}
-}
-function wish(){document.getElementById('flames').style.visibility='hidden';confetti();
-document.getElementById('letter').style.display='block';
-}
 </script></body></html>
